@@ -1,0 +1,15 @@
+services:
+  server:
+    container_name: adventure-game-server
+    ports:
+      - "8000:8000"
+    build:
+      context: ./backend
+  client:
+    container_name: adventure-game-client
+    ports:
+      - "80:80"
+    build:
+      context: ./frontend
+    depends_on:
+      - server
